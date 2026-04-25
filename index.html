@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greystone AI Executive Team — Org Chart v4.0 (Flat Org)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.6; }
+  .container { max-width: 1340px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .header { background: linear-gradient(135deg, #0a1830 0%, #13254a 40%, #1e3a5f 100%); color: white; border-radius: 18px; padding: 40px 48px; margin-bottom: 32px; position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(176,141,87,0.12) 0%, transparent 70%); }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 1; }
+  .header-left h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; margin-bottom: 6px; }
+  .header-left .subtitle { font-size: 15px; opacity: 0.82; font-weight: 500; }
+  .header-left .date { margin-top: 14px; font-size: 12.5px; opacity: 0.60; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600; }
+  .header-right { text-align: right; }
+  .header-right .total { font-size: 52px; font-weight: 900; letter-spacing: -1.5px; line-height: 1; background: linear-gradient(135deg, #e8c96a, #b08d57); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .header-right .total-label { font-size: 11px; opacity: 0.72; margin-top: 6px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; }
+  .header-right .status-pill { display: inline-block; margin-top: 14px; background: rgba(176,141,87,0.22); border: 1px solid rgba(176,141,87,0.5); color: #e8c96a; padding: 6px 14px; border-radius: 20px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; }
+
+  .goal-banner { background: linear-gradient(135deg, #f5ebd0 0%, #e8c96a 100%); border-radius: 16px; padding: 22px 28px; margin-bottom: 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .goal-banner .goal-label { font-size: 11px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: #713f12; margin-bottom: 4px; }
+  .goal-banner .goal-target { font-size: 22px; font-weight: 800; color: #0a1830; letter-spacing: -0.3px; }
+  .goal-banner .goal-horizon { font-size: 13px; color: #713f12; margin-top: 4px; font-weight: 600; }
+  .goal-banner .goal-right { text-align: right; }
+  .goal-banner .goal-horizon-val { font-size: 32px; font-weight: 900; color: #0a1830; letter-spacing: -0.8px; line-height: 1; }
+  .goal-banner .goal-horizon-label { font-size: 11px; font-weight: 700; color: #713f12; margin-top: 4px; letter-spacing: 0.8px; text-transform: uppercase; }
+
+  .section-label { font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.4px; color: #64748b; margin-bottom: 14px; margin-top: 28px; display: flex; align-items: center; gap: 10px; }
+  .section-label::before { content: ''; width: 4px; height: 14px; background: #b08d57; border-radius: 2px; }
+
+  /* TREE STRUCTURE */
+  .tree-wrap { background: white; border-radius: 18px; padding: 40px 28px 32px; border: 1px solid #e2e8f0; box-shadow: 0 2px 10px rgba(10,24,48,0.05); margin-bottom: 28px; overflow-x: auto; }
+
+  .level-ceo, .level-coo { display: flex; justify-content: center; }
+
+  .ceo-card { background: linear-gradient(135deg, #0a1830 0%, #1e3a5f 100%); color: white; border-radius: 14px; padding: 20px 36px; min-width: 320px; text-align: center; box-shadow: 0 10px 30px rgba(10,24,48,0.25); position: relative; overflow: hidden; }
+  .ceo-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #b08d57, #e8c96a, #b08d57); }
+  .ceo-card .role-tag { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #e8c96a; margin-bottom: 4px; }
+  .ceo-card .ceo-name { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; }
+  .ceo-card .ceo-desc { font-size: 11px; opacity: 0.75; margin-top: 4px; font-weight: 500; }
+
+  .v-line { width: 2px; height: 28px; background: linear-gradient(180deg, rgba(10,24,48,0.4), rgba(10,24,48,0.15)); margin: 0 auto; }
+
+  .coo-card { background: white; border: 2px solid #0a1830; border-radius: 14px; padding: 18px 32px; min-width: 380px; text-align: center; box-shadow: 0 6px 20px rgba(10,24,48,0.12); position: relative; }
+  .coo-card::before { content: ''; position: absolute; top: -2px; left: -2px; right: -2px; height: 4px; background: linear-gradient(90deg, #0a1830, #b08d57, #0a1830); border-radius: 14px 14px 0 0; }
+  .coo-card .coo-icon { font-size: 24px; display: block; margin-bottom: 2px; }
+  .coo-card .role-tag { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #b08d57; margin-bottom: 2px; }
+  .coo-card .coo-name { font-size: 19px; font-weight: 800; color: #0a1830; letter-spacing: -0.3px; }
+  .coo-card .coo-desc { font-size: 11.5px; color: #64748b; margin-top: 4px; line-height: 1.5; }
+
+  /* DIRECTOR ROW — FLAT ORG (7 direct reports) */
+  .level-directors { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; margin-top: 0; position: relative; }
+  @media (max-width: 1200px) { .level-directors { grid-template-columns: repeat(4, 1fr); gap: 14px; } }
+  @media (max-width: 700px) { .level-directors { grid-template-columns: repeat(2, 1fr); } }
+
+  .director-col { display: flex; flex-direction: column; align-items: center; position: relative; }
+  .director-col::before { content: ''; position: absolute; top: -28px; left: 50%; transform: translateX(-50%); width: 2px; height: 28px; background: rgba(10,24,48,0.3); }
+
+  .agent-card { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 12px 10px; position: relative; box-shadow: 0 2px 8px rgba(10,24,48,0.06); transition: transform 0.2s, box-shadow 0.2s; width: 100%; text-align: center; }
+  .agent-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(10,24,48,0.12); }
+  .agent-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 12px 12px 0 0; }
+
+  .agent-card.ava::before     { background: #10b981; }
+  .agent-card.katy::before    { background: #0ea5e9; }
+  .agent-card.kyle::before    { background: #f97316; }
+  .agent-card.ben::before     { background: #b08d57; }
+  .agent-card.brian::before   { background: #8b5cf6; }
+  .agent-card.ryan::before    { background: #ec4899; }
+  .agent-card.aiden::before   { background: #14b8a6; }
+
+  .agent-icon { font-size: 24px; line-height: 1; margin-bottom: 4px; }
+  .agent-name { font-size: 14px; font-weight: 800; color: #0a1830; letter-spacing: -0.3px; }
+  .agent-role { font-size: 10px; color: #64748b; margin-top: 2px; font-weight: 600; letter-spacing: 0.2px; line-height: 1.3; }
+  .agent-desc { font-size: 10.5px; color: #334155; margin-top: 6px; line-height: 1.4; min-height: 38px; }
+  .agent-reports { font-size: 9px; color: #0a1830; margin-top: 6px; padding: 3px 0; border-top: 1px solid #e2e8f0; letter-spacing: 0.2px; font-weight: 700; background: #f8fafc; border-radius: 4px; margin-left: -12px; margin-right: -12px; padding-left: 12px; padding-right: 12px; }
+  .agent-cadence { display: inline-flex; align-items: center; margin-top: 6px; font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 12px; background: #f1f5f9; color: #475569; }
+
+  /* REVIEW LOOP PANEL */
+  .review-loops { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 16px; padding: 24px 28px; margin-top: 24px; border: 1px solid #fcd34d; }
+  .review-loops h3 { font-size: 15px; font-weight: 800; color: #713f12; margin-bottom: 14px; letter-spacing: -0.2px; display: flex; align-items: center; gap: 8px; }
+  .loop-item { background: white; border-radius: 10px; padding: 14px 18px; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .loop-item:last-child { margin-bottom: 0; }
+  .loop-flow { font-size: 12.5px; color: #334155; line-height: 1.55; }
+  .loop-flow strong { color: #0a1830; font-weight: 700; }
+  .loop-arrow { color: #b08d57; margin: 0 4px; font-weight: 700; }
+  .loop-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 800; color: #92400e; margin-bottom: 4px; }
+
+  /* DOTTED RELATIONSHIPS */
+  .relationships-section { background: #f8fafc; border-radius: 14px; padding: 22px 26px; margin-top: 24px; border: 1px dashed #cbd5e1; }
+  .relationships-section h3 { font-size: 14px; font-weight: 800; color: #0a1830; margin-bottom: 12px; letter-spacing: -0.2px; }
+  .relationship-item { font-size: 12.5px; color: #475569; padding: 6px 0; line-height: 1.55; }
+  .relationship-item strong { color: #0a1830; }
+  .rel-arrow { color: #94a3b8; margin: 0 6px; }
+
+  /* SUNSET ROSTER */
+  .sunset-section { background: #fef2f2; border-radius: 14px; padding: 22px 26px; margin-top: 24px; border: 1px solid #fecaca; }
+  .sunset-section h3 { font-size: 14px; font-weight: 800; color: #991b1b; margin-bottom: 10px; letter-spacing: -0.2px; }
+  .sunset-item { font-size: 12px; color: #7f1d1d; padding: 4px 0; line-height: 1.55; }
+  .sunset-item strong { color: #991b1b; }
+
+  .legend { display: flex; gap: 24px; justify-content: center; margin-top: 20px; flex-wrap: wrap; font-size: 11.5px; color: #64748b; }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-solid { width: 20px; height: 2px; background: rgba(10,24,48,0.4); }
+  .legend-dashed { width: 20px; height: 2px; background-image: linear-gradient(90deg, rgba(10,24,48,0.4) 50%, transparent 50%); background-size: 6px 100%; }
+
+  /* CADENCE + REVENUE */
+  .cadence-section, .revenue-section { background: white; border-radius: 16px; padding: 28px 32px; margin-bottom: 28px; border: 1px solid #e2e8f0; box-shadow: 0 2px 8px rgba(10,24,48,0.05); }
+  .cadence-section h2, .revenue-section h2 { font-size: 18px; font-weight: 800; color: #0a1830; margin-bottom: 18px; letter-spacing: -0.3px; }
+  .cadence-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+  @media (max-width: 900px) { .cadence-grid { grid-template-columns: repeat(2, 1fr); } }
+  .day-col { background: #f8fafc; border-radius: 10px; padding: 14px 12px; }
+  .day-col.daily { background: linear-gradient(180deg, #f0f9ff, #e0f2fe); }
+  .day-label { font-size: 10.5px; font-weight: 800; color: #64748b; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #e2e8f0; }
+  .day-col.daily .day-label { color: #0369a1; }
+  .event { font-size: 11.5px; color: #334155; padding: 6px 0; line-height: 1.4; display: flex; align-items: flex-start; gap: 6px; }
+  .event-time { font-weight: 700; color: #0a1830; min-width: 48px; flex-shrink: 0; }
+
+  .revenue-table { width: 100%; border-collapse: collapse; }
+  .revenue-table th { text-align: left; padding: 10px 14px; font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: #64748b; background: #f8fafc; border-bottom: 2px solid #e2e8f0; }
+  .revenue-table td { padding: 11px 14px; font-size: 12.5px; border-bottom: 1px solid #f1f5f9; }
+  .revenue-table td:first-child { font-weight: 700; color: #0a1830; }
+  .revenue-table td.impact { color: #15803d; font-weight: 700; }
+
+  .footer { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 24px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+  .footer strong { color: #0a1830; }
+  .footer .sig { font-size: 13px; color: #0a1830; font-weight: 700; margin-bottom: 4px; }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-top">
+      <div class="header-left">
+        <h1>Greystone AI Executive Team</h1>
+        <div class="subtitle">Flat org — Jarvis + 7 direct reports only</div>
+        <div class="date">Version 4.0 · Updated April 21, 2026 · Ashley &amp; Sophia sunset — flat org</div>
+      </div>
+      <div class="header-right">
+        <div class="total">8</div>
+        <div class="total-label">AI Agents</div>
+        <span class="status-pill">★ Jarvis + 7 Direct · Flat Org</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="goal-banner">
+    <div class="goal-left">
+      <div class="goal-label">The Greystone AI Team Model</div>
+      <div class="goal-target">7 Direct Reports · 1 Mission · Zero Layers</div>
+      <div class="goal-horizon">Every direct report reviewed by Jarvis (COO) — no sub-agents, no handoff friction</div>
+    </div>
+    <div class="goal-right">
+      <div class="goal-horizon-val">24/7</div>
+      <div class="goal-horizon-label">Always Running</div>
+    </div>
+  </div>
+
+  <!-- HIERARCHY TREE -->
+  <div class="section-label">Reporting Hierarchy · Solid Lines = Direct Reports to Jarvis</div>
+  <div class="tree-wrap">
+
+    <!-- CEO -->
+    <div class="level-ceo">
+      <div class="ceo-card">
+        <div class="role-tag">Chief Executive Officer</div>
+        <div class="ceo-name">Jonathan Wei</div>
+        <div class="ceo-desc">Final approval: hires · external publishing · capital · strategy</div>
+      </div>
+    </div>
+    <div class="v-line"></div>
+
+    <!-- COO -->
+    <div class="level-coo">
+      <div class="coo-card">
+        <span class="coo-icon">🧠</span>
+        <div class="role-tag">Chief Operating Officer</div>
+        <div class="coo-name">Jarvis</div>
+        <div class="coo-desc">Reviews ALL direct-report output daily · synthesizes Monday rollup · absorbs technical execution · accountable for timely delivery</div>
+      </div>
+    </div>
+    <div class="v-line"></div>
+
+    <!-- DIRECTOR ROW — 7 DIRECT REPORTS, FLAT -->
+    <div class="level-directors">
+
+      <div class="director-col">
+        <div class="agent-card katy">
+          <div class="agent-icon">📢</div>
+          <div class="agent-name">Katy</div>
+          <div class="agent-role">Chief Marketing Officer</div>
+          <div class="agent-desc">Marketing, content, ads, social, YouTube production (absorbed from Ashley 4/21).</div>
+          <div class="agent-reports">↑ Reports to Jarvis</div>
+          <div class="agent-cadence">⏱ Daily 11 AM · Sun 7 PM</div>
+        </div>
+      </div>
+
+      <div class="director-col">
+        <div class="agent-card kyle">
+          <div class="agent-icon">🎯</div>
+          <div class="agent-name">Kyle</div>
+          <div class="agent-role">Sales Director</div>
+          <div class="agent-desc">Mastermind pipeline + social-inbox hot-lead triage (absorbed from Sophia 4/21).</div>
+          <div class="agent-reports">↑ Reports to Jarvis</div>
+          <div class="agent-cadence">⏱ 30-min sweep · Sun 5 PM</div>
+        </div>
+      </div>
+
+      <div class="director-col">
+        <div class="agent-card ava">
+          <div class="agent-icon">🏢</div>
+          <div class="agent-name">Ava</div>
+          <div class="agent-role">Operations Director</div>
+          <div class="agent-desc">4 storage properties. Occupancy, yield, auctions, ops.</div>
+          <div class="agent-reports">↑ Reports to Jarvis</div>
+          <div class="agent-cadence">⏱ Sun 9 PM</div>
+        </div>
+      </div>
+
+      <div class="director-col">
+        <div class="agent-card ben">
+          <div class="agent-icon">💼</div>
+          <div class="agent-name">Ben</div>
+          <div class="agent-role">Acquisitions Analyst</div>
+          <div class="agent-desc">Deal sourcing, underwriting, Crexi/LoopNet + lending.</div>
+          <div class="agent-reports">↑ Reports to Jarvis</div>
+          <div class="agent-cadence">⏱ Wed 2 PM</div>
+        </div>
+      </div>
+
+      <div class="director-col">
+        <div class="agent-card brian">
+          <div class="agent-icon">💰</div>
+          <div class="agent-name">Brian</div>
+          <div class="agent-role">Chief Financial Officer</div>
+          <div class="agent-desc">P&amp;L, Wave, goal tracking, lending book, capital plan.</div>
+          <div class="agent-reports">↑ Reports to Jarvis</div>
+          <div class="agent-cadence">⏱ Fri 5 PM</div>
+        </div>
+      </div>
+
+      <div class="director-col">
+        <div class="agent-card ryan">
+          <div class="agent-icon">💎</div>
+          <div class="agent-name">Ryan</div>
+          <div class="agent-role">Investor Relations</div>
+          <div class="agent-desc">LP capital, investor updates, syndication equity.</div>
+          <div class="agent-reports">↑ Reports to Jarvis</div>
+          <div class="agent-cadence">⏱ Thu 2 PM</div>
+        </div>
+      </div>
+
+      <div class="director-col">
+        <div class="agent-card aiden">
+          <div class="agent-icon">🤝</div>
+          <div class="agent-name">Aiden</div>
+          <div class="agent-role">Community Manager</div>
+          <div class="agent-desc">Mastermind onboarding, retention, referrals, Circle.</div>
+          <div class="agent-reports">↑ Reports to Jarvis</div>
+          <div class="agent-cadence">⏱ Daily 9 AM</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- LEGEND -->
+    <div class="legend">
+      <div class="legend-item"><span class="legend-solid"></span> Solid line = direct reporting to Jarvis (COO reviews all work)</div>
+      <div class="legend-item"><span class="legend-dashed"></span> Dotted line = peer-to-peer cross-functional coordination</div>
+    </div>
+
+    <!-- REVIEW LOOPS -->
+    <div class="review-loops">
+      <h3>🔁 Work Review Loops (Simplified — Flat Org)</h3>
+
+      <div class="loop-item">
+        <div class="loop-label">Loop 1 · All Direct Reports (Agent → Jarvis → CEO)</div>
+        <div class="loop-flow">
+          <strong>📢 Katy · 🎯 Kyle · 🏢 Ava · 💼 Ben · 💰 Brian · 💎 Ryan · 🤝 Aiden</strong>
+          <span class="loop-arrow">→</span>
+          <strong>🧠 Jarvis</strong> reviews daily output + rolls up Sunday evening
+          <span class="loop-arrow">→</span>
+          <strong>👔 CEO</strong> gets Monday 10 AM synthesized rollup + daily Jarvis brief
+        </div>
+      </div>
+
+      <div class="loop-item">
+        <div class="loop-label">Loop 2 · External Publishing (ANY agent → Jarvis → CEO)</div>
+        <div class="loop-flow">
+          Agent drafts external content (post, email, ad)
+          <span class="loop-arrow">→</span>
+          <strong>🧠 Jarvis</strong> QCs + forwards to CEO with "APPROVE?"
+          <span class="loop-arrow">→</span>
+          <strong>👔 CEO</strong> approves via email/chat
+          <span class="loop-arrow">→</span>
+          Jarvis ships via proper tool (Blotato, Gmail, Meta, etc.)
+        </div>
+      </div>
+
+      <div class="loop-item">
+        <div class="loop-label">Loop 3 · Technical Execution (Agent needs it → Jarvis does it)</div>
+        <div class="loop-flow">
+          Agent needs FFmpeg / file ops / MCP execution their scheduled task can't do
+          <span class="loop-arrow">→</span>
+          <strong>🧠 Jarvis</strong> absorbs directly (no sub-agent, no waiting)
+          <span class="loop-arrow">→</span>
+          Agent confirms deliverable shipped
+        </div>
+      </div>
+
+      <div class="loop-item">
+        <div class="loop-label">Loop 4 · Missed Deadline (Accountability Pattern)</div>
+        <div class="loop-flow">
+          Direct report misses ship time
+          <span class="loop-arrow">→</span>
+          <strong>🧠 Jarvis</strong> executes the work same-day
+          <span class="loop-arrow">→</span>
+          Diagnoses root cause in next brief
+          <span class="loop-arrow">→</span>
+          Proposes fix to CEO (retune skill / upgrade tool / sunset agent)
+        </div>
+      </div>
+    </div>
+
+    <!-- DOTTED-LINE RELATIONSHIPS -->
+    <div class="relationships-section">
+      <h3>Cross-Functional Dotted Lines (Coordination, Not Authority)</h3>
+      <div class="relationship-item">📢 <strong>Katy</strong> <span class="rel-arrow">⇢</span> <strong>Kyle</strong>: Engagement DMs routed from Kyle's triage to Katy's daily queue for brand-voice replies</div>
+      <div class="relationship-item">🤝 <strong>Aiden</strong> <span class="rel-arrow">⇢</span> <strong>Kyle</strong>: Newly enrolled students handed off from Kyle → Aiden onboarding</div>
+      <div class="relationship-item">💼 <strong>Ben</strong> <span class="rel-arrow">⇢</span> <strong>Brian</strong>: Deal underwriting stress-tested by Brian before CEO approval</div>
+      <div class="relationship-item">💎 <strong>Ryan</strong> <span class="rel-arrow">⇢</span> <strong>Ben</strong>: LP capital matched to Ben-sourced deals for syndication</div>
+      <div class="relationship-item">🏢 <strong>Ava</strong> <span class="rel-arrow">⇢</span> <strong>Katy</strong>: Storage property marketing campaigns routed through Katy's Google Ads</div>
+    </div>
+
+    <!-- SUNSET REGISTER -->
+    <div class="sunset-section">
+      <h3>🚫 Sunset Register — Agents Retired (April 21, 2026)</h3>
+      <div class="sunset-item">🎬 <strong>Ashley (Content Producer)</strong> — scope: video editing, thumbnails, clip repurposing. <strong>Reason:</strong> redundant layer under Katy; scheduled task couldn't execute FFmpeg. <strong>Absorbed by:</strong> Katy (production orchestration) + Jarvis (FFmpeg execution). <em>Archived: <code>/Greystone Skills/_archived_agents/</code></em></div>
+      <div class="sunset-item">💬 <strong>Sophia (Social Inbox Manager)</strong> — scope: DM triage + engagement replies. <strong>Reason:</strong> redundant layer under Kyle; added handoff friction without unique leverage. <strong>Absorbed by:</strong> Kyle (hot-lead triage) + Katy (engagement replies in brand voice). <em>Archived: <code>/Greystone Skills/_archived_agents/</code></em></div>
+    </div>
+
+  </div>
+
+  <!-- WEEKLY CADENCE -->
+  <div class="cadence-section">
+    <h2>⏱ Weekly Team Cadence (Flat Org)</h2>
+    <div class="cadence-grid">
+
+      <div class="day-col daily">
+        <div class="day-label">Daily</div>
+        <div class="event"><span class="event-time">8:00</span><span>🧠 Jarvis brief</span></div>
+        <div class="event"><span class="event-time">8-22</span><span>🎯 Kyle social sweep (30m)</span></div>
+        <div class="event"><span class="event-time">9:00</span><span>🤝 Aiden pulse</span></div>
+        <div class="event"><span class="event-time">11:00</span><span>📢 Katy content queue</span></div>
+        <div class="event"><span class="event-time">18:00</span><span>🎯 Kyle social digest</span></div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-label">Mon</div>
+        <div class="event"><span class="event-time">8:00</span><span>🔄 Storage refresh</span></div>
+        <div class="event"><span class="event-time">10:00</span><span>🧠 CEO weekly rollup</span></div>
+        <div class="event"><span class="event-time">11:00</span><span>📊 Simple Storage</span></div>
+        <div class="event"><span class="event-time">12:00</span><span>🎬 YouTube ship (Katy)</span></div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-label">Tue</div>
+        <div class="event"><span class="event-time">10:00</span><span>🤝 Aiden Circle post</span></div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-label">Wed</div>
+        <div class="event"><span class="event-time">14:00</span><span>💼 Ben pipeline</span></div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-label">Thu</div>
+        <div class="event"><span class="event-time">14:00</span><span>💎 Ryan IR</span></div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-label">Fri</div>
+        <div class="event"><span class="event-time">8:00</span><span>🔄 Apts refresh</span></div>
+        <div class="event"><span class="event-time">10:00</span><span>📢 Katy analytics</span></div>
+        <div class="event"><span class="event-time">11:00</span><span>🎬 CEO films (if any)</span></div>
+        <div class="event"><span class="event-time">17:00</span><span>💰 Brian P&amp;L</span></div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-label">Sat / Sun</div>
+        <div class="event"><span class="event-time">Sun 5</span><span>🎯 Kyle sales</span></div>
+        <div class="event"><span class="event-time">Sun 6</span><span>🤝 Aiden health</span></div>
+        <div class="event"><span class="event-time">Sun 7</span><span>📢 Katy marketing</span></div>
+        <div class="event"><span class="event-time">Sun 9</span><span>🏢 Ava ops</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GROWTH LEVERS -->
+  <div class="revenue-section">
+    <h2>📈 Growth Lever per Agent</h2>
+    <table class="revenue-table">
+      <thead>
+        <tr>
+          <th>Agent</th>
+          <th>Reports To</th>
+          <th>Reviewed By</th>
+          <th>Growth Lever</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>🧠 Jarvis</td><td>CEO</td><td>CEO</td><td class="impact">Decision velocity · team coordination · 10× leverage · timely delivery accountability</td></tr>
+        <tr><td>📢 Katy</td><td>Jarvis</td><td>Jarvis</td><td class="impact">Paid + organic content · YouTube production · marketing ROI</td></tr>
+        <tr><td>🎯 Kyle</td><td>Jarvis</td><td>Jarvis</td><td class="impact">Lead-to-student conversion · social hot-lead triage · Mastermind enrollment</td></tr>
+        <tr><td>🏢 Ava</td><td>Jarvis</td><td>Jarvis</td><td class="impact">Occupancy + yield · storage NOI compounding</td></tr>
+        <tr><td>💼 Ben</td><td>Jarvis</td><td>Jarvis</td><td class="impact">Deal sourcing · acquisition velocity</td></tr>
+        <tr><td>💰 Brian</td><td>Jarvis</td><td>Jarvis</td><td class="impact">Capital allocation · P&amp;L discipline</td></tr>
+        <tr><td>💎 Ryan</td><td>Jarvis</td><td>Jarvis</td><td class="impact">LP capital · syndication equity unlock</td></tr>
+        <tr><td>🤝 Aiden</td><td>Jarvis</td><td>Jarvis</td><td class="impact">Community retention · recurring revenue</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="sig">— Greystone Capital Group</div>
+    <div>AI Executive Team · Powered by Claude · v4.0 (Flat Org)</div>
+    <div style="margin-top:8px;">Single source of truth: <strong>2nd Brain → Greystone Org Chart</strong></div>
+    <div style="margin-top:4px; font-size: 11px;">Jonathan Wei · CEO &nbsp;·&nbsp; Jarvis · COO &nbsp;·&nbsp; 7 direct reports · flat org</div>
+  </div>
+
+</div>
+</body>
+</html>

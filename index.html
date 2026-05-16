@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Greystone AI Executive Team — Org Chart v4.0 (Flat Org)</title>
+<title>Greystone AI Executive Team — Org Chart v4.2 (Flat Org · 9 Agents · Legal Added)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -53,9 +53,9 @@
   .coo-card .coo-name { font-size: 19px; font-weight: 800; color: #0a1830; letter-spacing: -0.3px; }
   .coo-card .coo-desc { font-size: 11.5px; color: #64748b; margin-top: 4px; line-height: 1.5; }
 
-  /* DIRECTOR ROW — FLAT ORG (7 direct reports) */
-  .level-directors { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; margin-top: 0; position: relative; }
-  @media (max-width: 1200px) { .level-directors { grid-template-columns: repeat(4, 1fr); gap: 14px; } }
+  /* DIRECTOR ROW — FLAT ORG (8 direct reports) */
+  .level-directors { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; margin-top: 0; position: relative; }
+  @media (max-width: 1340px) { .level-directors { grid-template-columns: repeat(4, 1fr); gap: 14px; } }
   @media (max-width: 700px) { .level-directors { grid-template-columns: repeat(2, 1fr); } }
 
   .director-col { display: flex; flex-direction: column; align-items: center; position: relative; }
@@ -72,6 +72,7 @@
   .agent-card.brian::before   { background: #8b5cf6; }
   .agent-card.ryan::before    { background: #ec4899; }
   .agent-card.aiden::before   { background: #14b8a6; }
+  .agent-card.mark::before    { background: #6366f1; }
 
   .agent-icon { font-size: 24px; line-height: 1; margin-bottom: 4px; }
   .agent-name { font-size: 14px; font-weight: 800; color: #0a1830; letter-spacing: -0.3px; }
@@ -139,13 +140,13 @@
     <div class="header-top">
       <div class="header-left">
         <h1>Greystone AI Executive Team</h1>
-        <div class="subtitle">Flat org — Jarvis + 7 direct reports only</div>
-        <div class="date">Version 4.0 · Updated April 21, 2026 · Ashley &amp; Sophia sunset — flat org</div>
+        <div class="subtitle">Flat org — Jarvis + 8 direct reports</div>
+        <div class="date">Version 4.2 · Updated May 16, 2026 · Mark (Legal Director) added — flat-org titles updated (Director convention)</div>
       </div>
       <div class="header-right">
-        <div class="total">8</div>
+        <div class="total">9</div>
         <div class="total-label">AI Agents</div>
-        <span class="status-pill">★ Jarvis + 7 Direct · Flat Org</span>
+        <span class="status-pill">★ Jarvis + 8 Direct · Flat Org</span>
       </div>
     </div>
   </div>
@@ -153,7 +154,7 @@
   <div class="goal-banner">
     <div class="goal-left">
       <div class="goal-label">The Greystone AI Team Model</div>
-      <div class="goal-target">7 Direct Reports · 1 Mission · Zero Layers</div>
+      <div class="goal-target">8 Direct Reports · 1 Mission · Zero Layers</div>
       <div class="goal-horizon">Every direct report reviewed by Jarvis (COO) — no sub-agents, no handoff friction</div>
     </div>
     <div class="goal-right">
@@ -187,14 +188,14 @@
     </div>
     <div class="v-line"></div>
 
-    <!-- DIRECTOR ROW — 7 DIRECT REPORTS, FLAT -->
+    <!-- DIRECTOR ROW — 8 DIRECT REPORTS, FLAT -->
     <div class="level-directors">
 
       <div class="director-col">
         <div class="agent-card katy">
           <div class="agent-icon">📢</div>
           <div class="agent-name">Katy</div>
-          <div class="agent-role">Chief Marketing Officer</div>
+          <div class="agent-role">Marketing Director</div>
           <div class="agent-desc">Marketing, content, ads, social, YouTube production (absorbed from Ashley 4/21).</div>
           <div class="agent-reports">↑ Reports to Jarvis</div>
           <div class="agent-cadence">⏱ Daily 11 AM · Sun 7 PM</div>
@@ -227,7 +228,7 @@
         <div class="agent-card mike">
           <div class="agent-icon">💼</div>
           <div class="agent-name">Mike</div>
-          <div class="agent-role">Acquisitions Analyst</div>
+          <div class="agent-role">Acquisition Director</div>
           <div class="agent-desc">Deal sourcing, underwriting, Crexi/LoopNet/Capitalize + lending.</div>
           <div class="agent-reports">↑ Reports to Jarvis</div>
           <div class="agent-cadence">⏱ Wed 2 PM</div>
@@ -249,7 +250,7 @@
         <div class="agent-card ryan">
           <div class="agent-icon">💎</div>
           <div class="agent-name">Ryan</div>
-          <div class="agent-role">Investor Relations</div>
+          <div class="agent-role">Investor Relations Director</div>
           <div class="agent-desc">LP capital, investor updates, syndication equity.</div>
           <div class="agent-reports">↑ Reports to Jarvis</div>
           <div class="agent-cadence">⏱ Thu 2 PM</div>
@@ -260,10 +261,21 @@
         <div class="agent-card aiden">
           <div class="agent-icon">🤝</div>
           <div class="agent-name">Aiden</div>
-          <div class="agent-role">Community Manager</div>
+          <div class="agent-role">Community Director</div>
           <div class="agent-desc">Mastermind onboarding, retention, referrals, Circle.</div>
           <div class="agent-reports">↑ Reports to Jarvis</div>
           <div class="agent-cadence">⏱ Daily 9 AM</div>
+        </div>
+      </div>
+
+      <div class="director-col">
+        <div class="agent-card mark">
+          <div class="agent-icon">⚖️</div>
+          <div class="agent-name">Mark</div>
+          <div class="agent-role">Legal Director</div>
+          <div class="agent-desc">Contracts, PPMs, Reg D, entity formation, risk flagging, outside counsel coord.</div>
+          <div class="agent-reports">↑ Reports to Jarvis</div>
+          <div class="agent-cadence">⏱ On-demand · Fri 4 PM review</div>
         </div>
       </div>
 
@@ -282,7 +294,7 @@
       <div class="loop-item">
         <div class="loop-label">Loop 1 · All Direct Reports (Agent → Jarvis → CEO)</div>
         <div class="loop-flow">
-          <strong>📢 Katy · 🎯 Kyle · 🏢 Ava · 💼 Mike · 💰 Brian · 💎 Ryan · 🤝 Aiden</strong>
+          <strong>📢 Katy · 🎯 Kyle · 🏢 Ava · 💼 Mike · 💰 Brian · 💎 Ryan · 🤝 Aiden · ⚖️ Mark</strong>
           <span class="loop-arrow">→</span>
           <strong>🧠 Jarvis</strong> reviews daily output + rolls up Sunday evening
           <span class="loop-arrow">→</span>
@@ -336,12 +348,22 @@
       <div class="relationship-item">💼 <strong>Mike</strong> <span class="rel-arrow">⇢</span> <strong>Brian</strong>: Deal underwriting stress-tested by Brian before CEO approval</div>
       <div class="relationship-item">💎 <strong>Ryan</strong> <span class="rel-arrow">⇢</span> <strong>Mike</strong>: LP capital matched to Mike-sourced deals for syndication</div>
       <div class="relationship-item">🏢 <strong>Ava</strong> <span class="rel-arrow">⇢</span> <strong>Katy</strong>: Storage property marketing campaigns routed through Katy's Google Ads</div>
+      <div class="relationship-item">⚖️ <strong>Mark</strong> <span class="rel-arrow">⇢</span> <strong>Mike</strong>: LOIs / PSAs / JV docs reviewed by Mark before Jarvis presents to CEO</div>
+      <div class="relationship-item">⚖️ <strong>Mark</strong> <span class="rel-arrow">⇢</span> <strong>Ryan</strong>: PPMs, Subscription Agreements, Reg D 506(b)/(c) compliance pre-cleared by Mark before LP outreach</div>
+      <div class="relationship-item">⚖️ <strong>Mark</strong> <span class="rel-arrow">⇢</span> <strong>Aiden</strong>: Mastermind contracts + member agreements legal-reviewed before send</div>
+      <div class="relationship-item">⚖️ <strong>Mark</strong> <span class="rel-arrow">⇢</span> <strong>Ava</strong>: Tenant escalations / disputes escalated to Mark when legal review is needed</div>
+    </div>
+
+    <!-- NEW SEAT REGISTER -->
+    <div class="sunset-section" style="background: #ecfdf5; border-color: #6ee7b7;">
+      <h3 style="color: #065f46;">✨ New Seat Added — May 16, 2026</h3>
+      <div class="sunset-item" style="color: #065f46;">⚖️ <strong style="color: #064e3b;">Mark (Legal Director)</strong> — added May 16, 2026. <strong>Scope:</strong> Contract review (LOIs, PSAs, JV agreements, vendor contracts, loan docs) · Syndication legal + securities compliance (PPMs, Subscription Agreements, Reg D 506(b)/(c), accredited investor verification) · Entity formation (LLCs, parent/sub structuring, registered agent) · Tenant escalations · Risk flagging on inbound docs · Outside counsel coordination. <strong>Routing:</strong> No dedicated alias — operates under <code>jarvis@greystonecapgroup.com</code>. Legal-related inbound emails funnel through Jarvis triage; Jarvis tasks Mark when legal review is needed.</div>
     </div>
 
     <!-- SUNSET REGISTER -->
     <div class="sunset-section">
       <h3>🚫 Sunset Register — Agents Retired</h3>
-      <div class="sunset-item">💼 <strong>Ben (Acquisitions Analyst)</strong> — retired Apr 30, 2026. <strong>Reason:</strong> CEO directive to rebuild the acquisitions seat with sharper daily Capitalize.io discipline + 32-unit floor. <strong>Replaced by:</strong> 💼 Mike (Acquisitions Analyst). <em>Old skill archived at <code>/Greystone Skills/Ben — Acquisitions.md</code> (DEPRECATED header). Daily and weekly Ben scheduled tasks disabled.</em></div>
+      <div class="sunset-item">💼 <strong>Ben (Acquisitions Analyst)</strong> — retired Apr 30, 2026. <strong>Reason:</strong> CEO directive to rebuild the acquisitions seat with sharper daily Capitalize.io discipline + 32-unit floor. <strong>Replaced by:</strong> 💼 Mike (Acquisitions Analyst, now primary direct report — no longer a sub-agent under Ben). <em>Old skill archived at <code>/Greystone Skills/Ben — Acquisitions.md</code> (DEPRECATED header). Daily and weekly Ben scheduled tasks disabled.</em></div>
       <div class="sunset-item">🎬 <strong>Ashley (Content Producer)</strong> — retired Apr 21, 2026. <strong>Reason:</strong> redundant layer under Katy; scheduled task couldn't execute FFmpeg. <strong>Absorbed by:</strong> Katy (production orchestration) + Jarvis (FFmpeg execution). <em>Archived: <code>/Greystone Skills/_archived_agents/</code></em></div>
       <div class="sunset-item">💬 <strong>Sophia (Social Inbox Manager)</strong> — retired Apr 21, 2026. <strong>Reason:</strong> redundant layer under Kyle; added handoff friction without unique leverage. <strong>Absorbed by:</strong> Kyle (hot-lead triage) + Katy (engagement replies in brand voice). <em>Archived: <code>/Greystone Skills/_archived_agents/</code></em></div>
     </div>
@@ -390,6 +412,7 @@
         <div class="event"><span class="event-time">8:00</span><span>🔄 Apts refresh</span></div>
         <div class="event"><span class="event-time">10:00</span><span>📢 Katy analytics</span></div>
         <div class="event"><span class="event-time">11:00</span><span>🎬 CEO films (if any)</span></div>
+        <div class="event"><span class="event-time">16:00</span><span>⚖️ Mark legal review</span></div>
         <div class="event"><span class="event-time">17:00</span><span>💰 Brian P&amp;L</span></div>
       </div>
 
@@ -425,6 +448,7 @@
         <tr><td>💰 Brian</td><td>Jarvis</td><td>Jarvis</td><td class="impact">Capital allocation · P&amp;L discipline</td></tr>
         <tr><td>💎 Ryan</td><td>Jarvis</td><td>Jarvis</td><td class="impact">LP capital · syndication equity unlock</td></tr>
         <tr><td>🤝 Aiden</td><td>Jarvis</td><td>Jarvis</td><td class="impact">Community retention · recurring revenue</td></tr>
+        <tr><td>⚖️ Mark</td><td>Jarvis</td><td>Jarvis</td><td class="impact">Legal risk · syndication securities compliance · contract velocity</td></tr>
       </tbody>
     </table>
   </div>
@@ -432,9 +456,9 @@
   <!-- FOOTER -->
   <div class="footer">
     <div class="sig">— Greystone Capital Group</div>
-    <div>AI Executive Team · Powered by Claude · v4.0 (Flat Org)</div>
+    <div>AI Executive Team · Powered by Claude · v4.2 (Flat Org · 9 Agents)</div>
     <div style="margin-top:8px;">Single source of truth: <strong>2nd Brain → Greystone Org Chart</strong></div>
-    <div style="margin-top:4px; font-size: 11px;">Jonathan Wei · CEO &nbsp;·&nbsp; Jarvis · COO &nbsp;·&nbsp; 7 direct reports · flat org</div>
+    <div style="margin-top:4px; font-size: 11px;">Jonathan Wei · CEO &nbsp;·&nbsp; Jarvis · COO &nbsp;·&nbsp; 8 direct reports · flat org</div>
   </div>
 
 </div>
